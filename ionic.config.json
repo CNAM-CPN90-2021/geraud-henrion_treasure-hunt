@@ -1,0 +1,7 @@
+{
+  "name": "treasure-hunt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
