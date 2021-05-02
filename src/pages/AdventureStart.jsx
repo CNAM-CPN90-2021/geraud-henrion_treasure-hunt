@@ -29,16 +29,11 @@ export function AdventureStart() {
             cascades de feuilles de Sty'hl. Ce lieu regorge de merveilles, mais
             prenez garde aux conflits de Sail'Hector !
           </p>
-
-          <p>
-            Attrapez un sac, une corde, un clavier et des mousquetons, c'est
-            parti pour une séance de Canyoning dans l'ancestrale vallée du Oueb.
-          </p>
         </div>
       </IonContent>
       <IonFooter>
-        <IonButton routerLink="/" expand="full">
-          C'est parti
+        <IonButton routerLink="/adventure/1/bag" expand="full">
+          Préparer mon sac
         </IonButton>
       </IonFooter>
     </IonPage>
