@@ -32,12 +32,12 @@ export function AdventureStart() {
               <strong>Épisode 1</strong>
             </small>
             <br />
-            La cascade des feuilles de Sty'hl
+            La cascade de feuilles de Sty'hl
           </h1>
 
           <p>
             Bienvenue, dans cet épisode nous allons explorer les légendaires
-            cascades de Sty'hl. Ce lieu regorge de merveilles, mais prenez garde
+            cascades de feuilles de Sty'hl. Ce lieu regorge de merveilles, mais prenez garde
             aux conflits de Sail'Hector !
           </p>
 

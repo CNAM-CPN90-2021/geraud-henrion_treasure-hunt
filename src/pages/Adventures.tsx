@@ -19,7 +19,7 @@ export function Adventures() {
           <AdventureCard
             id="1"
             thumbnail="https://source.unsplash.com/random/640x320"
-            title="La cascade des feuilles de Sty'hl"
+            title="La cascade de feuilles de Sty'hl"
           />
 
           <AdventureCard
