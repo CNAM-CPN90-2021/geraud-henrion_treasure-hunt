@@ -6,10 +6,12 @@ import {
   IonPage,
   IonThumbnail,
 } from "@ionic/react";
+import { Header } from "../components/Header";
 
 export function Adventures() {
   return (
     <IonPage>
+      <Header title="Accueil — Le périple du Oueb mobile" hidden />
       <IonContent fullscreen>
         <div className="container">
           <h1>Le périple du Oueb mobile</h1>

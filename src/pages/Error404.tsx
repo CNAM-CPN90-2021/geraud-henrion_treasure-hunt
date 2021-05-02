@@ -9,12 +9,15 @@ import {
   IonBackButton,
 } from "@ionic/react";
 import { Link, useRouteMatch } from "react-router-dom";
+import { Header } from "../components/Header";
 
 export function Error404() {
   const match = useRouteMatch();
 
   return (
     <IonPage>
+      <Header title={`404 — La page "${match.path}" est introuvable`} />
+
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">

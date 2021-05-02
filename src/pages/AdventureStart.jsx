@@ -1,15 +1,11 @@
 import {
   IonContent,
-  IonHeader,
   IonPage,
-  IonToolbar,
-  IonButtons,
-  IonBackButton,
-  IonTitle,
   IonFooter,
   IonButton,
 } from "@ionic/react";
 import { useRouteMatch } from "react-router";
+import { Header } from "../components/Header";
 
 export function AdventureStart() {
   const { params } = useRouteMatch();
@@ -17,14 +13,7 @@ export function AdventureStart() {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton />
-          </IonButtons>
-          <IonTitle>Épisode 1 — La cascade des feuilles de Sty'hl</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header title="Épisode 1 — La cascade des feuilles de Sty'hl" />
       <IonContent fullscreen>
         <div className="container">
           <h1>
@@ -37,8 +26,8 @@ export function AdventureStart() {
 
           <p>
             Bienvenue, dans cet épisode nous allons explorer les légendaires
-            cascades de feuilles de Sty'hl. Ce lieu regorge de merveilles, mais prenez garde
-            aux conflits de Sail'Hector !
+            cascades de feuilles de Sty'hl. Ce lieu regorge de merveilles, mais
+            prenez garde aux conflits de Sail'Hector !
           </p>
 
           <p>
