@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-import { useWatchPosition } from "@capacitor-community/react-hooks/geolocation";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./Map.css";
 import { MAPBOX_ACCESS_TOKEN } from "../../config";
 import cascade from "./cascade.svg";
+import { useRealPosition, useSimulatedPosition } from "./usePosition";
 
 const mapStyleUrl =
   "https://api.mapbox.com/styles/v1/mapbox/cjtep62gq54l21frr1whf27ak";
@@ -23,18 +23,8 @@ export function Map() {
     longitude: 7.3293385,
   };
 
-  const { currentPosition, startWatch, clearWatch } = useWatchPosition();
-
-  useEffect(
-    function onMount() {
-      startWatch();
-
-      return function onUnmount() {
-        clearWatch();
-      };
-    },
-    [startWatch, clearWatch]
-  );
+  const currentPosition = useSimulatedPosition();
+  // const currentPosition = useRealPosition();
 
   return (
     <ReactMapGL
@@ -45,10 +35,10 @@ export function Map() {
       height="100%"
       onViewportChange={(viewport) => setViewport(viewport)}
     >
-      {currentPosition?.coords && (
+      {currentPosition && (
         <PositionMarker
-          latitude={currentPosition.coords.latitude}
-          longitude={currentPosition.coords.longitude}
+          latitude={currentPosition.latitude}
+          longitude={currentPosition.longitude}
         />
       )}
       <DestinationMarker {...destination} />
