@@ -1,6 +1,4 @@
 import {
-  IonContent,
-  IonPage,
   IonItem,
   IonLabel,
   IonRadio,
@@ -25,7 +23,7 @@ export function Bag() {
           <IonFooter>
             <IonButton
               expand="full"
-              routerLink="/travel"
+              routerLink="/adventure/1/travel"
               onClick={() => {
                 bag.add(selected);
               }}

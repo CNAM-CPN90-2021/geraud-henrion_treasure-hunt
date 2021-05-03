@@ -15,7 +15,17 @@ Désactivation du mode strict de typescript (pour pouvoir écrire simplement du 
 
 ## Commandes
 
+Au premier lancement, faire `npm install`, puis dupliquer `.env.dist`en `.env` et ajouter les variables d'environnement nécessaires.
+
 Lancer le serveur de dev :
 ```
 npm start
 ```
+
+## Sujets
+
+- créer un compte + générer access token mapbox
+- .env
+- feuille de styles mapbox
+- Context
+- paramètres d'url
