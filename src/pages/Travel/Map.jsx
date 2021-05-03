@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -8,21 +8,23 @@ import cascade from "./cascade.svg";
 import { useRealPosition, useSimulatedPosition } from "./usePosition";
 import distance from "@turf/distance";
 import { point } from "@turf/helpers";
+import { useHistory } from "react-router";
 
 const mapStyleUrl =
   "https://api.mapbox.com/styles/v1/mapbox/cjtep62gq54l21frr1whf27ak";
 
 export function Map() {
+  const history = useHistory();
   const [viewport, setViewport] = useState({
     latitude: 47.7386289,
     longitude: 7.3293385,
-    zoom: 15,
+    zoom: 13,
   });
 
   const destination = {
     latitude: 47.7386289,
     longitude: 7.3293385,
-  }
+  };
 
   const currentPosition = useSimulatedPosition();
   // const currentPosition = useRealPosition();
@@ -37,10 +39,10 @@ export function Map() {
   const isCloseEnough = distanceToDestination < 100;
 
   useEffect(() => {
-    if(isCloseEnough) {
-      alert('Good game')
+    if (isCloseEnough) {
+      history.replace("/adventure/1/entrance");
     }
-  }, [isCloseEnough])
+  }, [history, isCloseEnough]);
 
   return (
     <ReactMapGL
@@ -51,13 +53,14 @@ export function Map() {
       height="100%"
       onViewportChange={(viewport) => setViewport(viewport)}
     >
+      <DestinationMarker {...destination} />
+
       {currentPosition && (
         <PositionMarker
           latitude={currentPosition.latitude}
           longitude={currentPosition.longitude}
         />
       )}
-      <DestinationMarker {...destination} />
     </ReactMapGL>
   );
 }
