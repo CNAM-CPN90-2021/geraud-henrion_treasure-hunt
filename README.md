@@ -41,8 +41,10 @@ Explication : Votre dépendance requiert `react 16` or `react 17` est installé.
 
 ## Sujets
 
-- créer un compte + générer access token mapbox
+- créer un compte mapbox + générer access token
 - .env
 - feuille de styles mapbox
 - Context
 - paramètres d'url
+- https://visgl.github.io/react-map-gl
+- https://turfjs.org/
