@@ -1,10 +1,12 @@
 import { PageLayout } from "../components/PageLayout";
 import { useState } from "react";
-import ReactMapGL from "react-map-gl";
+import ReactMapGL, { GeolocateControl, Marker } from "react-map-gl";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./Travel.css";
 import { MAPBOX_ACCESS_TOKEN } from "../config";
+import cascade from "./cascade.svg";
+
 
 const mapStyleUrl =
   "https://api.mapbox.com/styles/v1/mapbox/cjtep62gq54l21frr1whf27ak";
@@ -16,6 +18,11 @@ export function Travel() {
     zoom: 12,
   });
 
+  const destination = {
+    latitude: 47.7386289,
+    longitude: 7.3293385,
+  };
+
   return (
     <PageLayout title="En route">
       <div className="map-container">
@@ -26,7 +33,13 @@ export function Travel() {
           width="100%"
           height="100%"
           onViewportChange={(viewport) => setViewport(viewport)}
-        />
+        >
+          <Marker {...destination} offsetLeft={-56 / 2} offsetTop={-56 / 2}>
+            <div className="marker-icon">
+              <img src={cascade} alt="destination : cascade" />
+            </div>
+          </Marker>
+        </ReactMapGL>
       </div>
 
       <div className="container bottom-sheet">
