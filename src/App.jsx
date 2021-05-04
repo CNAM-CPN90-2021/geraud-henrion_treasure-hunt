@@ -6,6 +6,7 @@ import { AdventureStart } from "./pages/AdventureStart";
 import { Adventures } from "./pages/Adventures";
 import { Error404 } from "./pages/Error404";
 import { Bag } from "./pages/Bag";
+import { Map } from "./pages/Map";
 import { BagStateProvider } from "./bagContext";
 
 import "./theme/index.css";
@@ -23,6 +24,8 @@ export function App() {
             <Route path="/adventure/:id/travel" component={Travel} />
             <Route path="/adventure/:id/entrance" component={Entrance} />
             <Route exact path="/adventure/:id" component={AdventureStart} />
+
+            <Route path="/map" component={Map} />
 
             <Route component={Error404} />
           </IonRouterOutlet>
