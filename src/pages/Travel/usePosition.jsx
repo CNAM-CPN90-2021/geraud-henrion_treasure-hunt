@@ -44,6 +44,5 @@ export function useSimulatedPosition() {
     [setPosition]
   );
 
-  // console.log(currentPosition);
   return currentPosition;
 }
