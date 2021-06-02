@@ -1,10 +1,26 @@
 import { IonButton, useIonToast } from "@ionic/react";
+import { useState } from "react";
 import { PageLayout } from "../components/PageLayout";
 import { useQRCodeScanner } from "../useQRCodeScanner";
 
 export function Entrance() {
-  const { startScan } = useQRCodeScanner();
+  const { startScan, stopScan } = useQRCodeScanner();
+  const [isScanning, setIsScanning] = useState(false);
   const [showToast] = useIonToast();
+
+  if (isScanning) {
+    return (
+      <IonButton
+        expand="full"
+        onClick={() => {
+          setIsScanning(false);
+          stopScan();
+        }}
+      >
+        Annuler le scan
+      </IonButton>
+    );
+  }
 
   return (
     <PageLayout
@@ -31,7 +47,9 @@ export function Entrance() {
       </p>
       <IonButton
         onClick={async () => {
+          setIsScanning(true);
           const result = await startScan();
+          setIsScanning(false);
 
           console.log(result);
           if (result.content === "good_answer") {
