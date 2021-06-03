@@ -10,10 +10,13 @@ import {
 import { useState } from "react";
 import { useBag } from "../bagContext";
 import { PageLayout } from "../components/PageLayout";
+import { useHealth } from "../useHealth";
 
 export function Bag() {
   const [selected, setSelected] = useState();
   const bag = useBag();
+
+  const { playerHealth, setPlayerHealth } = useHealth();
 
   return (
     <PageLayout
@@ -34,7 +37,14 @@ export function Bag() {
         )
       }
     >
-      <h1>Préparation du sac</h1>
+      <h1>Ta vie est à : {playerHealth}</h1>
+      <IonButton onClick={() => setPlayerHealth((h) => h - 10)}>
+        Prendre des dégats
+      </IonButton>
+      <IonButton onClick={() => setPlayerHealth((h) => h + 10)}>
+        Se soigner
+      </IonButton>
+            <h1>Préparation du sac</h1>
       <p>
         C'est parti pour une séance de Canyoning dans l'ancestrale vallée
         du Oueb.
