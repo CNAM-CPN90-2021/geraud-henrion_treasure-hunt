@@ -1,7 +1,9 @@
 import { IonButton } from "@ionic/react";
 import { PageLayout } from "../components/PageLayout";
+import { useHealth } from "../useHealth";
 
 export function AdventureStart() {
+  const { playerHealth, setPlayerHealth } = useHealth();
 
   return (
     <PageLayout
@@ -12,6 +14,14 @@ export function AdventureStart() {
         </IonButton>
       }
     >
+      <h1>Ta vie est à : {playerHealth}</h1>
+      <IonButton onClick={() => setPlayerHealth((h) => h - 10)}>
+        Prendre des dégats
+      </IonButton>
+      <IonButton onClick={() => setPlayerHealth((h) => h + 10)}>
+        Se soigner
+      </IonButton>
+
       <h1>
         <small>
           <strong>Épisode 1</strong>
